@@ -1,0 +1,6 @@
+NEXT_COMMIT.txt
+NEXT_CHANGELOG.md
+node_modules/
+.DS_Store
+dist/
+build/

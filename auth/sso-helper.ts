@@ -77,6 +77,9 @@ export function getBackendPort(clientId: string): number {
     case 'starswarm': return 29002;
     case 'tickerclash': return 29003;
     case 'gridlock-neon': return 29005;
+    case 'retrosweeper': return 20006;
+    case 'sudoku-neon':
+    case 'sudoku': return 20007;
     default: return 29000;
   }
 }
@@ -99,4 +102,27 @@ export function redirectToSSO(clientId: string, state?: string): void {
   } else {
     window.location.href = targetUrl;
   }
+}
+
+export function getHubUrl(): string {
+  if (typeof window === 'undefined') return '/';
+  
+  const isPackaged = window.location.protocol === 'file:' || 
+                     window.location.hostname === '' ||
+                     navigator.userAgent.toLowerCase().includes('electron');
+  
+  if (isPackaged) {
+    return 'http://localhost:19000';
+  }
+
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    const port = window.location.port;
+    if (port.startsWith('19') || port.startsWith('20')) {
+      return 'http://localhost:19000';
+    }
+    return 'http://localhost:28000';
+  }
+  
+  const proto = typeof window !== 'undefined' && window.location.protocol === 'https:' ? 'https:' : 'http:';
+  return `${proto}//kbs-cloud.com`;
 }

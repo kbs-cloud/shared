@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export interface SSOLoginPanelProps {
   title: string;
@@ -37,6 +37,14 @@ export const SSOLoginPanel: React.FC<SSOLoginPanelProps> = ({
   bgElement
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 800);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Default Inline Styles for robustness across Tailwind and CSS setups
   const defaultContainerStyle: React.CSSProperties = {
@@ -57,14 +65,14 @@ export const SSOLoginPanel: React.FC<SSOLoginPanelProps> = ({
     boxSizing: 'border-box',
     textAlign: 'center',
     width: '100%',
-    maxWidth: '420px',
+    maxWidth: windowWidth < 480 ? '92%' : '420px',
     background: 'rgba(10, 5, 20, 0.65)',
     backdropFilter: 'blur(16px)',
     WebkitBackdropFilter: 'blur(16px)',
     border: '1px solid rgba(255, 255, 255, 0.08)',
     borderTop: '1px solid rgba(255, 255, 255, 0.15)',
     borderRadius: '16px',
-    padding: '36px 32px',
+    padding: windowWidth < 480 ? '24px 16px' : '36px 32px',
     boxShadow: `0 8px 32px rgba(0, 0, 0, 0.5), 0 0 25px ${themeColor}1a, inset 0 0 15px ${themeColor}0d`,
     fontFamily: "'Share Tech Mono', monospace, sans-serif",
     color: '#f8fafc',
@@ -253,7 +261,7 @@ export const SSOLoginPanel: React.FC<SSOLoginPanelProps> = ({
             <input 
               type="checkbox" 
               checked={!playOnline} 
-              onChange={() => onPlayOnlineChange(!playOnline)} 
+              onChange={() => onPlayOnlineChange(playOnline)} 
               style={defaultCheckboxStyle}
             />
             PLAY OFFLINE / LOCAL MODE

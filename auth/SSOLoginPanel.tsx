@@ -261,7 +261,7 @@ export const SSOLoginPanel: React.FC<SSOLoginPanelProps> = ({
             <input 
               type="checkbox" 
               checked={!playOnline} 
-              onChange={() => onPlayOnlineChange(playOnline)} 
+              onChange={() => onPlayOnlineChange(!playOnline)} 
               style={defaultCheckboxStyle}
             />
             PLAY OFFLINE / LOCAL MODE

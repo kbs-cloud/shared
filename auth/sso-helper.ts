@@ -73,14 +73,20 @@ export function startSSOBackgroundCheck({
 
 export function getBackendPort(clientId: string): number {
   switch (clientId) {
-    case 'alchemist': return 29004;
+    case 'alchemist':
+    case 'alchemists-crucible': return 29004;
     case 'starswarm': return 29002;
     case 'tickerclash': return 29003;
     case 'gridlock-neon': return 29005;
     case 'retrosweeper': return 20006;
     case 'sudoku-neon':
     case 'sudoku': return 20007;
+    case 'baseball':
+    case 'baseball-stats': return 19008;
+    case 'wyrdmarch': return 20009;
+    case 'craft-realm': return 19010;
     default: return 29000;
+
   }
 }
 

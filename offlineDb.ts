@@ -227,8 +227,52 @@ export const DEFAULT_GAMES: Game[] = [
     isOnline: true,
     isMultiplayer: false,
     app_token: 'glimmerwood_token_dev_555'
+  },
+  {
+    id: 'wyrdmarch',
+    title: 'Wyrdmarch',
+    developer: 'KBS Cloud Games',
+    publisher: 'KBS Cloud',
+    release_date: 'August 2026',
+    description: 'Claim a fractured medieval realm, hex by hex. County economy, seasons, sieges — simpler than Civ, meaner than peacetime.',
+    full_description: 'Wyrdmarch blends a Civilization-style hex-tile map with Lords of the Realm II-style county management: seasonal harvests, peasant happiness and rebellion, castle tiers, and WEGO order-based siege battles. Play solo against AI rivals, pass-and-play hotseat on one device, or online with room codes — rehost any save and let friends reclaim (or usurp) their seats.',
+    tags: ['Strategy', 'Turn-Based', 'Hex Map', 'Medieval', 'Management', 'Siege', 'Multiplayer'],
+    features: [
+      'Civilization-style hex-tile world map',
+      'Lords of the Realm II-style county economy: seasons, rations, rebellion',
+      'Castle tiers from Palisade to Royal Castle',
+      'WEGO order-based tactical sieges (queue orders, resolve simultaneously)',
+      'Online multiplayer with shareable room codes and seat takeover',
+      'Local hotseat pass-and-play and full offline single-player'
+    ],
+    systemRequirements: {
+      os: 'Ubuntu 22.04+, Windows 10/11, macOS 12+',
+      cpu: 'Dual-core 1.5 GHz or better',
+      memory: '1 GB RAM',
+      graphics: 'Integrated WebGL',
+      storage: '100 MB available space'
+    },
+    prod_url: 'https://wyrdmarch.kbs-cloud.com',
+    dev_url: 'http://localhost:19009',
+    github_url: 'https://github.com/kbs-cloud/wyrdmarch',
+    download_url: '', // browser-only for now — no standalone package
+    cover_image: '/wyrdmarch_cover.png',
+    icon: '🗺️',
+    isOnline: true,
+    isMultiplayer: true,
+    app_token: 'wyrdmarch_token_dev_001'
   }
 ];
+
+// A game that lives purely in the browser: playable at its prod_url with
+// nothing to download — no standalone package, no active client builds.
+// These skip the hub's install step entirely and get a direct Play button.
+export function isBrowserOnly(game: Game): boolean {
+  if (!game.prod_url || game.prod_url.trim() === '') return false;
+  if (game.download_url && game.download_url.trim() !== '') return false;
+  const builds = game.build_urls ? Object.values(game.build_urls) : [];
+  return !builds.some(b => b && b.status === 'active');
+}
 
 export function resolveImageUrl(url: string | null | undefined): string {
   const fallback = '/starswarm_cover.png';

@@ -261,6 +261,39 @@ export const DEFAULT_GAMES: Game[] = [
     isOnline: true,
     isMultiplayer: true,
     app_token: 'wyrdmarch_token_dev_001'
+  },
+  {
+    id: 'craft-realm',
+    title: 'CraftRealm',
+    developer: 'KBS Cloud Games',
+    publisher: 'KBS Cloud',
+    release_date: 'August 2026',
+    description: 'Full-featured 3D browser Minecraft clone featuring procedural voxel terrain, 3x3 crafting, mob AI, direct connect P2P multiplayer, and Meshy.ai/ElevenLabs AI generation tools.',
+    full_description: 'Explore, build, mine, and survive in CraftRealm, a modern 3D voxel sandbox built with React, Three.js, and WebGL. Build intricate redstone-like structures, mine diamond ores in procedural cave networks, fight hostile Creepers and Zombies, join friends directly via P2P WebRTC Direct Connect, and create custom 3D models and sound effects with built-in Meshy.ai and ElevenLabs AI tools.',
+    tags: ['Sandbox', 'Voxel', 'Survival', 'Multiplayer', '3D', 'Crafting', 'AI'],
+    features: [
+      '60 FPS face-culled 3D voxel rendering engine with procedural cave networks and biomes',
+      'Full Minecraft survival mechanics: 36-slot inventory, 3x3 Crafting Table, tools, durability, health & hunger',
+      'Direct Connect P2P multiplayer via WebRTC (PeerJS) and kbs-game-coordinator proxy relay',
+      'In-game AI Creation Studio integrating Meshy.ai (Image-to-3D) and ElevenLabs (SFX & Voice synthesis)',
+      'Electron desktop packaging and Capacitor mobile cross-platform touch support'
+    ],
+    systemRequirements: {
+      os: 'Ubuntu 22.04+, Windows 10/11, Android 10+, iOS 15+, macOS 12+',
+      cpu: 'Intel Core i3 / AMD Ryzen 3 or better',
+      memory: '4 GB RAM',
+      graphics: 'WebGL 2.0 compatible GPU',
+      storage: '200 MB available space'
+    },
+    prod_url: 'http://localhost:19010',
+    dev_url: 'http://localhost:19010',
+    github_url: 'https://github.com/kbs-cloud/craft-realm',
+    download_url: 'https://github.com/kbs-cloud/craft-realm/releases',
+    cover_image: '/craft_realm_cover.png',
+    icon: '⛏️',
+    isOnline: true,
+    isMultiplayer: true,
+    app_token: 'craft_realm_token_dev_777'
   }
 ];
 

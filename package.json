@@ -1,0 +1,10 @@
+{
+  "name": "@kbs-cloud/shared",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Shared KBS Cloud client helpers",
+  "exports": {
+    "./auth": "./auth/sso-helper.js"
+  },
+  "files": ["auth/sso-helper.js", "auth/sso-helper.ts", "auth/SSOLoginPanel.tsx"]
+}

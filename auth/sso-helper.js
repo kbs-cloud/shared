@@ -1,11 +1,5 @@
 function getAuthServerUrl() {
-  const authProto = typeof window !== 'undefined' && window.location.protocol === 'https:' ? 'https:' : 'http:';
-  if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
-    const port = window.location.port;
-    if (port.startsWith('19') || port.startsWith('20')) return 'http://localhost:19001';
-    return 'http://localhost:28001';
-  }
-  return `${authProto}//auth.kbs-cloud.com`;
+  return 'https://auth.kbs-cloud.com';
 }
 function getBackendPort(clientId) {
   switch (clientId) {

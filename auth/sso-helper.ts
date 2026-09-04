@@ -1,4 +1,6 @@
 export function getAuthServerUrl(): string {
+  // The SSO provider is centrally hosted. Consumers must register their
+  // client_id and exact callback origin with kbs-auth before login can work.
   return 'https://auth.kbs-cloud.com';
 }
 
@@ -90,6 +92,8 @@ export function redirectToSSO(clientId: string, state?: string): void {
                      navigator.userAgent.toLowerCase().includes('electron');
   
   const localBackend = isPackaged ? `http://localhost:${getBackendPort(clientId)}` : window.location.origin;
+  // The callback receives a one-time `code`; the consuming backend must
+  // exchange it at POST /api/auth/token with this same client_id.
   const redirectUri = `${localBackend}/api/auth/callback`;
   
   let targetUrl = `${getAuthServerUrl()}/api/auth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}`;

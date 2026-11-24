@@ -263,18 +263,18 @@ export const DEFAULT_GAMES: Game[] = [
     app_token: 'wyrdmarch_token_dev_001'
   },
   {
-    id: 'craft-realm',
-    title: 'CraftRealm',
+    id: 'thera',
+    title: 'Thera: Realms of Abyss & Empyrean',
     developer: 'KBS Cloud Games',
     publisher: 'KBS Cloud',
     release_date: 'August 2026',
-    description: 'Full-featured 3D browser Minecraft clone featuring procedural voxel terrain, 3x3 crafting, mob AI, direct connect P2P multiplayer, and Meshy.ai/ElevenLabs AI generation tools.',
-    full_description: 'Explore, build, mine, and survive in CraftRealm, a modern 3D voxel sandbox built with React, Three.js, and WebGL. Build intricate redstone-like structures, mine diamond ores in procedural cave networks, fight hostile Creepers and Zombies, join friends directly via P2P WebRTC Direct Connect, and create custom 3D models and sound effects with built-in Meshy.ai and ElevenLabs AI tools.',
-    tags: ['Sandbox', 'Voxel', 'Survival', 'Multiplayer', '3D', 'Crafting', 'AI'],
+    description: 'Original dark medieval occult fantasy voxel RPG engine featuring procedural multi-realm cosmology, electromechanics, alembic alchemy, and dedicated multiplayer.',
+    full_description: 'Explore, build, delve, and survive in Thera: Realms of Abyss & Empyrean, a modern 3D dark fantasy voxel RPG built with React, Three.js, and WebGL. Harness copper and magnetite electromechanics, brew esoteric alembic concoctions, brave the three descending circles of Infernum and the celestial Empyrean Spire, summon or banish demonic fiends, join friends via direct P2P and dedicated multiplayer, and craft custom 3D models and soundscapes with built-in Meshy.ai and ElevenLabs AI tools.',
+    tags: ['Dark Fantasy', 'Voxel', 'Survival', 'Multiplayer', '3D', 'RPG', 'AI'],
     features: [
-      '60 FPS face-culled 3D voxel rendering engine with procedural cave networks and biomes',
-      'Full Minecraft survival mechanics: 36-slot inventory, 3x3 Crafting Table, tools, durability, health & hunger',
-      'Direct Connect P2P multiplayer via WebRTC (PeerJS) and kbs-game-coordinator proxy relay',
+      '60 FPS face-culled 3D voxel rendering engine with procedural cave networks, multi-realm cosmology, and biomes',
+      'Deep survival RPG mechanics: 36-slot inventory, crafting stations, occult imbuements, electromechanics, health & hunger',
+      'Direct Connect P2P multiplayer via WebRTC (PeerJS) and dedicated authoritative server relay',
       'In-game AI Creation Studio integrating Meshy.ai (Image-to-3D) and ElevenLabs (SFX & Voice synthesis)',
       'Electron desktop packaging and Capacitor mobile cross-platform touch support'
     ],
@@ -285,15 +285,81 @@ export const DEFAULT_GAMES: Game[] = [
       graphics: 'WebGL 2.0 compatible GPU',
       storage: '200 MB available space'
     },
-    prod_url: 'http://localhost:19010',
+    prod_url: 'https://thera.kbs-cloud.com',
     dev_url: 'http://localhost:19010',
-    github_url: 'https://github.com/kbs-cloud/craft-realm',
-    download_url: 'https://github.com/kbs-cloud/craft-realm/releases',
-    cover_image: '/craft_realm_cover.png',
+    github_url: 'https://github.com/kbs-cloud/thera',
+    download_url: '',
+    cover_image: '/thera_cover.png',
     icon: '⛏️',
     isOnline: true,
     isMultiplayer: true,
-    app_token: 'craft_realm_token_dev_777'
+    app_token: 'thera_token_dev_777'
+  },
+  {
+    id: 'spell-forger',
+    title: 'Spell Forger',
+    developer: 'KBS Cloud Games',
+    publisher: 'KBS Cloud',
+    release_date: 'August 2026',
+    description: 'Forge custom spells, fill your grimoire, and grow an idle wizard through adventure and prestige.',
+    full_description: 'Craft mana-limited spells by combining elements, forms, range, cooldown, and power in a magical workshop. Equip your grimoire, automatically battle procedurally generated monsters, gain levels and reputation, then sell the grimoire for mana stones that permanently improve your workshop and staff.',
+    tags: ['Idle', 'Incremental', 'Spellcrafting', 'Fantasy', 'Singleplayer'],
+    features: [
+      'Custom spells built from elements, forms, range, cooldown, and power',
+      'Automatic combat against procedurally generated monsters',
+      'Grimoire loadouts with unlockable active spell slots',
+      'Level, mana, and reputation progression',
+      'Mana stone prestige upgrades for the workshop and staff'
+    ],
+    systemRequirements: {
+      os: 'Ubuntu 22.04+, Windows 10/11, macOS 12+',
+      cpu: 'Dual-core 1.5 GHz or better',
+      memory: '1 GB RAM',
+      graphics: 'Integrated WebGL',
+      storage: '100 MB available space'
+    },
+    prod_url: 'https://spellforger.kbs-cloud.com',
+    dev_url: 'http://localhost:28011',
+    github_url: 'https://github.com/kbs-cloud/spell-forger',
+    download_url: '', // browser-only for now — no standalone package
+    cover_image: '/spell_forger_cover.png',
+    icon: '✨',
+    isOnline: false,
+    isMultiplayer: false,
+    app_token: 'spell_forger_browser_dev_011'
+  },
+  {
+    id: 'proteintracker',
+    title: 'Protein Tracker',
+    developer: 'KBS Cloud',
+    publisher: 'KBS Cloud',
+    release_date: 'September 2026',
+    description: 'Track daily protein intake against your goals, with metric/imperial input, custom foods, an eating-window tracker, and kbs-cloud sync across web, desktop, and mobile.',
+    full_description: 'Track daily protein intake against your goals, with metric/imperial input, custom foods, an eating-window tracker, and kbs-cloud sync across web, desktop, and mobile.',
+    tags: ['Health', 'Nutrition', 'Fitness', 'Productivity', 'Tracker'],
+    features: [
+      'Multi-profile sub-accounts for shared devices',
+      'Universal food unit conversion (g, oz, count, ml, cup)',
+      'Eating window compliance indicator',
+      'Per-profile daily and weekly protein goals',
+      'Offline-first with KBS Cloud SSO sync'
+    ],
+    systemRequirements: {
+      os: 'Ubuntu 22.04+, Windows 10/11, Android 10+, iOS 15+, macOS 12+',
+      cpu: 'Dual-core 1.5 GHz or better',
+      memory: '512 MB RAM',
+      graphics: 'Integrated WebGL',
+      storage: '50 MB available space'
+    },
+    prod_url: 'https://proteintracker.kbs-cloud.com',
+    dev_url: 'http://localhost:28012',
+    github_url: 'https://github.com/kbs-cloud/proteintracker',
+    download_url: '',
+    cover_image: '/proteintracker_cover.png',
+    icon: '🥩',
+    isOnline: true,
+    isMultiplayer: false,
+    app_token: 'proteintracker_app_token'
   }
 ];
 

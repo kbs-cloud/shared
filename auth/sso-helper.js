@@ -3,12 +3,14 @@ function getAuthServerUrl() {
   // client_id and exact callback origin with kbs-auth before login can work.
   return 'https://auth.kbs-cloud.com';
 }
-function getBackendPort(clientId) {
+function getBackendPort(clientId, isDev = false) {
   switch (clientId) {
     case 'alchemist': case 'alchemists-crucible': return 29004;
     case 'starswarm': return 29002; case 'tickerclash': return 29003; case 'gridlock-neon': return 29005;
     case 'retrosweeper': return 20006; case 'sudoku-neon': case 'sudoku': return 20007;
     case 'baseball': case 'baseball-stats': return 19008; case 'wyrdmarch': return 20009; case 'craft-realm': return 19010;
+    case 'proteintracker': return isDev ? 28012 : 20012;
+    case 'hifigemini': return 13015;
     default: return 29000;
   }
 }

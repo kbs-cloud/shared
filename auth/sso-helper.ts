@@ -65,7 +65,7 @@ export function startSSOBackgroundCheck({
   return cleanup;
 }
 
-export function getBackendPort(clientId: string): number {
+export function getBackendPort(clientId: string, isDev: boolean = false): number {
   switch (clientId) {
     case 'alchemist':
     case 'alchemists-crucible': return 29004;
@@ -79,8 +79,9 @@ export function getBackendPort(clientId: string): number {
     case 'baseball-stats': return 19008;
     case 'wyrdmarch': return 20009;
     case 'craft-realm': return 19010;
+    case 'proteintracker': return isDev ? 28012 : 20012;
+    case 'hifigemini': return 13015;
     default: return 29000;
-
   }
 }
 
